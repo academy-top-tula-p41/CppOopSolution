@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36414.22 d17.14
+VisualStudioVersion = 17.14.36414.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CppOopWelcomeProject", "CppOopWelcomeProject\CppOopWelcomeProject.vcxproj", "{6C7DAB45-300F-41C0-8EDC-E8C47E8C544D}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CppOopVectorProject", "CppOopVectorProject\CppOopVectorProject.vcxproj", "{8990CDD9-069D-4EDA-AFFE-5815FE9189B8}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CppOopToDoProject", "CppOopToDoProject\CppOopToDoProject.vcxproj", "{BA7937E4-7F42-4354-BAD9-D302AD0E5930}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +33,14 @@ Global
 		{8990CDD9-069D-4EDA-AFFE-5815FE9189B8}.Release|x64.Build.0 = Release|x64
 		{8990CDD9-069D-4EDA-AFFE-5815FE9189B8}.Release|x86.ActiveCfg = Release|Win32
 		{8990CDD9-069D-4EDA-AFFE-5815FE9189B8}.Release|x86.Build.0 = Release|Win32
+		{BA7937E4-7F42-4354-BAD9-D302AD0E5930}.Debug|x64.ActiveCfg = Debug|x64
+		{BA7937E4-7F42-4354-BAD9-D302AD0E5930}.Debug|x64.Build.0 = Debug|x64
+		{BA7937E4-7F42-4354-BAD9-D302AD0E5930}.Debug|x86.ActiveCfg = Debug|Win32
+		{BA7937E4-7F42-4354-BAD9-D302AD0E5930}.Debug|x86.Build.0 = Debug|Win32
+		{BA7937E4-7F42-4354-BAD9-D302AD0E5930}.Release|x64.ActiveCfg = Release|x64
+		{BA7937E4-7F42-4354-BAD9-D302AD0E5930}.Release|x64.Build.0 = Release|x64
+		{BA7937E4-7F42-4354-BAD9-D302AD0E5930}.Release|x86.ActiveCfg = Release|Win32
+		{BA7937E4-7F42-4354-BAD9-D302AD0E5930}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
