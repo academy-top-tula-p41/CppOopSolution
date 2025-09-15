@@ -5,18 +5,18 @@
 
 int main()
 {
-    Fraction fraction(5, 6);
+    Fraction fraction(25, 30);
     std::cout << fraction.ToString() << "\n";
 
     Fraction other(4, 7);
-    //fraction.Add(other);
 
-    std::cout << fraction.ToString() << "\n";
+    //Fraction result = fraction + other;
+    std::cout << (fraction + other).ToString() << "\n";
 
     Fraction f1(2, 5), f2(11, 15), f3(7, 12);
 
-    std::cout << fraction.Plus(other).Multiply(f1).ToString();
-    //Minus(f2).
+    //std::cout << fraction.Plus(other).Multiply(f1).Minus(f2).ToString();
+    
 }
 
 

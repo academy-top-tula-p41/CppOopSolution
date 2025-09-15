@@ -5,6 +5,7 @@ class Fraction
 	int denominator;
 
 	char* IntToChars(int number);
+	void Reduction();
 
 public:
 
@@ -23,6 +24,10 @@ public:
 	Fraction Minus(Fraction other);
 	Fraction Multiply(Fraction other);
 	Fraction Division(Fraction other);
+
+	Fraction operator+(Fraction other);
+
+	bool operator>(Fraction other);
 
 	const char* ToString();
 };
