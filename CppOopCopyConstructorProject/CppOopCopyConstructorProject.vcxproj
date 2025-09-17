@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{5acb584d-e42a-4f6a-8bcf-c373a4bbbdd6}</ProjectGuid>
-    <RootNamespace>CppOopFractionProject</RootNamespace>
+    <ProjectGuid>{3694ee79-e291-4b5c-9ebd-e9b87e0c95cd}</ProjectGuid>
+    <RootNamespace>CppOopCopyConstructorProject</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -123,12 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CppOopFractionProject.cpp" />
-    <ClCompile Include="Fraction.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Counter.h" />
-    <ClInclude Include="Fraction.h" />
+    <ClCompile Include="CppOopCopyConstructorProject.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

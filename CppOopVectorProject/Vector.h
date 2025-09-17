@@ -13,6 +13,14 @@ public:
 	Vector(int size) : items{ new int[size] {} },
 		size{ size },
 		capacity{ size } {}
+
+	Vector(const Vector& other)
+		: size{ other.size }, capacity{ other.capacity }
+	{
+		items = new int[capacity];
+		for (int i{}; i < size; i++)
+			items[i] = other.items[i];
+	}
 	
 
 	const int& Size() const { return size; }

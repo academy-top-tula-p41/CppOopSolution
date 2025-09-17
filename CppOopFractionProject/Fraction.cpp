@@ -1,5 +1,6 @@
 #define _CRT_SECURE_NO_WARNINGS
 
+#include <iostream>
 #include "Fraction.h"
 #include <string.h>
 #include <cmath>
@@ -132,22 +133,6 @@ Fraction Fraction::Division(Fraction other)
     return result;
 }
 
-Fraction Fraction::operator+(Fraction other)
-{
-    Fraction result;
-    result.numerator = this->numerator * other.denominator
-        + this->denominator * other.numerator;
-    result.denominator = this->denominator * other.denominator;
-
-    result.Reduction();
-    return result;
-}
-
-bool Fraction::operator>(Fraction other)
-{
-    return this->numerator * other.denominator
-        > this->denominator * other.numerator;
-}
 
 const char* Fraction::ToString()
 {
@@ -158,4 +143,75 @@ const char* Fraction::ToString()
     strcat(result, "]");
 
     return result;
+}
+
+Fraction operator+(Fraction left, Fraction right)
+{
+    Fraction result;
+    result.numerator = left.numerator * right.denominator
+        + left.denominator * right.numerator;
+    result.denominator = left.denominator * right.denominator;
+
+    result.Reduction();
+    return result;
+}
+
+Fraction operator+(int number, Fraction fraction)
+{
+    return Fraction(
+        fraction.numerator + fraction.denominator * number,
+        fraction.denominator
+    );
+}
+
+bool operator>(Fraction left, Fraction right)
+{
+    return left.numerator * right.denominator
+        > left.denominator * right.numerator;
+}
+
+bool operator<=(Fraction left, Fraction right)
+{
+    return !(left > right);
+}
+
+bool operator<(Fraction left, Fraction right)
+{
+    return left.numerator * right.denominator
+            < left.denominator * right.numerator;
+}
+
+bool operator==(Fraction left, Fraction right)
+{
+    return left.numerator * right.denominator
+        == left.denominator * right.numerator;
+}
+
+bool operator!=(Fraction left, Fraction right)
+{
+    return !(left == right);
+}
+
+std::ostream& operator<<(std::ostream& out, Fraction fraction)
+{
+    out << "[" << fraction.numerator << "/" << fraction.denominator << "]";
+    return out;
+}
+
+Fraction operator+(Fraction fraction, int number)
+{
+    return number + fraction;
+}
+
+Fraction Fraction::operator++()
+{
+    this->numerator += this->denominator;
+    return *this;
+}
+
+Fraction Fraction::operator++(int)
+{
+    Fraction temp = *this;
+    ++(*this);
+    return temp;
 }

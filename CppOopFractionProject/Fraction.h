@@ -25,9 +25,21 @@ public:
 	Fraction Multiply(Fraction other);
 	Fraction Division(Fraction other);
 
-	Fraction operator+(Fraction other);
+	friend Fraction operator+(Fraction left, Fraction right);
+	friend Fraction operator+(Fraction fraction, int number);
+	friend Fraction operator+(int number, Fraction fraction);
 
-	bool operator>(Fraction other);
+	friend bool operator>(Fraction left, Fraction right);
+	friend bool operator<=(Fraction left, Fraction right);
+	friend bool operator<(Fraction left, Fraction right);
+
+	friend bool operator==(Fraction left, Fraction right);
+	friend bool operator!=(Fraction left, Fraction right);
+
+	friend std::ostream& operator<<(std::ostream& out, Fraction fraction);
+
+	Fraction operator++();
+	Fraction operator++(int);
 
 	const char* ToString();
 };
