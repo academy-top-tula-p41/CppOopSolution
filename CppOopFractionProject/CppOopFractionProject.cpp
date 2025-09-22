@@ -16,7 +16,8 @@ int main()
     Fraction fraction(5, 6);
     std::cout << fraction.ToString() << "\n";
 
-    Fraction other = fraction;
+    Fraction other{ fraction };
+
     other.Numerator(10);
     std::cout << fraction.ToString() << "\n";
 

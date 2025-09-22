@@ -2,9 +2,13 @@
 #include "Vector.h"
 #include <vector>
 
+
+
 int main()
 {
     Vector v1;
+    
+
     for (int i = 1; i <= 10; i++)
         v1.PushBack(i * 100);
     v1.Print();

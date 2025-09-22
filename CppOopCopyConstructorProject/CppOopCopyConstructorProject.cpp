@@ -67,6 +67,19 @@ public:
             items[i] = array.items[i];
     }
 
+    Array operator=(const Array& array)
+    {
+        items = new int[size];
+        for (int i{}; i < size; i++)
+            items[i] = array.items[i];
+
+        return *this;
+    }
+
+    int Size() { return size; }
+    int Item(int index) { return items[index]; }
+    void Item(int index, int value) { items[index] = value; }
+
     ~Array()
     {
         if (items)
@@ -88,8 +101,16 @@ int main()
     //Func(counter);
     //Create();
     
-    Array array1(10);
+    Array array1(5);
+    for (int i{}; i < array1.Size(); i++)
+        array1.Item(i, 100);
 
-    Array array2 = array1;
+    Array array2(5);
+    array2 = array1;
 
+    array2.Item(0, 200);
+
+    for (int i{}; i < array1.Size(); i++)
+        std::cout << array1.Item(i) << " ";
+    std::cout << "\n";
 }

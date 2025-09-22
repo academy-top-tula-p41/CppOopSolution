@@ -12,6 +12,8 @@ public:
 	Fraction();
 	Fraction(int numerator, int denominator);
 
+	Fraction(const Fraction&) = default;
+
 	void Numerator(int value);
 	int Numerator() const;
 

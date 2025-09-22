@@ -21,7 +21,9 @@ public:
 		for (int i{}; i < size; i++)
 			items[i] = other.items[i];
 	}
-	
+
+
+	int& operator[](int index);
 
 	const int& Size() const { return size; }
 	const int& Capacity() const { return capacity; }
@@ -42,6 +44,11 @@ public:
 			delete[] items;
 	}
 };
+
+inline int& Vector::operator[](int index)
+{
+	return items[index];
+}
 
 void Vector::PushBack(int value)
 {
