@@ -32,12 +32,28 @@ public:
     {}
 };
 
+
+
 class Base
 {
+protected:
+    int protected_value;
 public:
-    Base() 
+    Base()
     {
+        protected_value = 0;
         std::cout << "Base construct " << this << "\n";
+    }
+    Base(int value)
+    {
+        protected_value = value;
+        std::cout << "Base params construct " << this << "\n";
+    }
+
+    Base(const Base& other)
+    {
+        this->protected_value = other.protected_value;
+        std::cout << "Base copy construct " << this << "\n";
     }
 
     ~Base()
@@ -46,17 +62,31 @@ public:
     }
 };
 
-class Derive : public Base
+class Derived : public Base
 {
 public:
-    Derive()
+    Derived()
     {
-        std::cout << "Derive construct " << this << "\n";
+        std::cout << "Derived construct " << this << "\n";
+        protected_value = 100;
+        //private_value = 200; 
     }
 
-    ~Derive()
+    //using Base::Base;
+    Derived(int value) : Base(value)
     {
-        std::cout << "Derive destruct " << this <<  "\n";
+        std::cout << "Derived params construct " << this << "\n";
+        //protected_value = value;
+    }
+
+    Derived(const Derived& derived_other) : Base(derived_other)
+    {
+        std::cout << "Derived copy construct " << this << "\n";
+    }
+
+    ~Derived()
+    {
+        std::cout << "Derived destruct " << this <<  "\n";
     }
 };
 
@@ -73,5 +103,11 @@ int main()
     //std::cout << line << "\n";
 
     //Base base;
-    Derive derive;
+    /*Derived obj(100);*/
+    Derived* obj1 = new Derived(100);
+    
+
+    delete obj1;
+
+    /*Derived obj2{ obj1 };*/
 }

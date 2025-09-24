@@ -1,7 +1,8 @@
 #pragma once
+template <typename T>
 class Vector
 {
-	int* items;
+	T* items;
 	int size;
 	int capacity;
 
@@ -10,31 +11,31 @@ public:
 		size{},
 		capacity{} {};
 
-	Vector(int size) : items{ new int[size] {} },
+	Vector(int size) : items{ new T[size] {} },
 		size{ size },
 		capacity{ size } {}
 
-	Vector(const Vector& other)
+	Vector(const Vector<T>& other)
 		: size{ other.size }, capacity{ other.capacity }
 	{
-		items = new int[capacity];
+		items = new T[capacity];
 		for (int i{}; i < size; i++)
 			items[i] = other.items[i];
 	}
 
 
-	int& operator[](int index);
+	T& operator[](int index);
 
 	const int& Size() const { return size; }
 	const int& Capacity() const { return capacity; }
 
-	void PushBack(int value);
-	void PushFront(int value);
-	void Insert(int index, int value);
+	void PushBack(T value);
+	void PushFront(T value);
+	void Insert(int index, T value);
 
-	int PopBack();
-	int PopFront();
-	int Remove(int index);
+	T PopBack();
+	T PopFront();
+	T Remove(int index);
 	
 	void Print();
 
@@ -45,12 +46,14 @@ public:
 	}
 };
 
-inline int& Vector::operator[](int index)
+template <typename T>
+inline T& Vector<T>::operator[](int index)
 {
 	return items[index];
 }
 
-void Vector::PushBack(int value)
+template <typename T>
+void Vector<T>::PushBack(T value)
 {
 	if (size < capacity)
 	{
@@ -60,7 +63,7 @@ void Vector::PushBack(int value)
 	}
 
 	(capacity) ? capacity *= 1.5 : capacity = 2;
-	int* newItems = new int[capacity] {};
+	T* newItems = new T[capacity] {};
 	for (int i{}; i < size; i++)
 		newItems[i] = items[i];
 	newItems[size] = value;
@@ -71,7 +74,8 @@ void Vector::PushBack(int value)
 	items = newItems;
 }
 
-void Vector::PushFront(int value)
+template <typename T>
+void Vector<T>::PushFront(T value)
 {
 	if (!capacity)
 	{
@@ -89,7 +93,7 @@ void Vector::PushFront(int value)
 	}
 
 	capacity *= 1.5;
-	int* newItems = new int[capacity] {};
+	T* newItems = new T[capacity] {};
 
 	for (int i{}; i < size; i++)
 		newItems[i + 1] = items[i];
@@ -100,7 +104,8 @@ void Vector::PushFront(int value)
 	items = newItems;
 }
 
-void Vector::Insert(int index, int value)
+template <typename T>
+void Vector<T>::Insert(int index, T value)
 {
 	if (!capacity)
 	{
@@ -118,7 +123,7 @@ void Vector::Insert(int index, int value)
 	}
 
 	capacity *= 1.5;
-	int* newItems = new int[capacity];
+	T* newItems = new T[capacity];
 	for (int i{}; i < index; i++)
 		newItems[i] = items[i];
 	for (int i{ index }; i < size; i++)
@@ -130,14 +135,16 @@ void Vector::Insert(int index, int value)
 	items = newItems;
 }
 
-void Vector::Print()
+template <typename T>
+void Vector<T>::Print()
 {
 	for (int i{}; i < size; i++)
 		std::cout << items[i] << " ";
 	std::cout << "\n";
 }
 
-int Vector::PopBack()
+template <typename T>
+T Vector<T>::PopBack()
 {
 	if (size <= 0)
 		throw "vector is empty";
@@ -149,7 +156,7 @@ int Vector::PopBack()
 	}
 
 	capacity = size * 1.5;
-	int* newItems = new int[capacity];
+	T* newItems = new T[capacity];
 	for (int i{}; i < size; i++)
 		newItems[i] = items[i];
 	size--;

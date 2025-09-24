@@ -2,11 +2,34 @@
 #include "Vector.h"
 #include <vector>
 
+class Person
+{
+    char name[20];
+    int age;
+public:
+    Person()
+    {
+        strcpy_s(name, 1, "");
+        age = 0;
+    }
+
+    Person(const char* name, int age) : age{ age }
+    {
+        strcpy_s(this->name, strlen(name) + 1, name);
+    }
+
+
+    friend std::ostream& operator<<(std::ostream& out, const Person& p)
+    {
+        out << "Name: " << p.name << ", Age: " << p.age;
+        return out;
+    }
+};
 
 
 int main()
 {
-    Vector v1;
+    /*Vector<int> v1;
     
 
     for (int i = 1; i <= 10; i++)
@@ -25,10 +48,7 @@ int main()
     catch (const char* ex)
     {
         std::cout << ex << "\n";
-    }
-    
-    
-
+    }*/
     
     /*std::cout << v1.Size() << " " << v1.Capacity() << "\n";
 
@@ -48,4 +68,11 @@ int main()
     v1.Insert(4, 1000);
     v1.Print();
     std::cout << v1.Size() << " " << v1.Capacity() << "\n";*/
+
+    Vector<Person> persons;
+    persons.PushBack(Person("Bobby", 29));
+    persons.PushBack(Person("Sammy", 31));
+    persons.PushBack(Person("Jimmy", 22));
+
+    persons.Print();
 }
