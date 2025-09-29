@@ -23,6 +23,43 @@ public:
 			items[i] = other.items[i];
 	}
 
+	Vector(Vector<T>&& other) noexcept
+		: size{ other.size },
+		capacity{ other.capacity },
+		items{ other.items } {}
+
+	Vector<T>& operator=(const Vector<T>& other)
+	{
+		if (&other == this)
+			return *this;
+
+		delete[] items;
+
+		items = new T[capacity];
+		for (int i{}; i < size; i++)
+			items[i] = other.items[i];
+
+		return *this;
+	}
+
+	Vector<T>& operator=(const Vector<T>&& other) noexcept
+	{
+		if (&other == this)
+			return *this;
+
+		delete[] items;
+
+		this->size = other.size;
+		this->capacity = other.capacity;
+		this->items = other.items;
+
+		other.capacity = 0;
+		other.size = 0;
+		other.items = nullptr;
+
+		return *this;
+	}
+
 
 	T& operator[](int index);
 

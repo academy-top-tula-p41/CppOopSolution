@@ -39,11 +39,11 @@ class Base
 protected:
     int protected_value;
 public:
-    Base()
+    /*Base()
     {
         protected_value = 0;
         std::cout << "Base construct " << this << "\n";
-    }
+    }*/
     Base(int value)
     {
         protected_value = value;
@@ -65,12 +65,12 @@ public:
 class Derived : public Base
 {
 public:
-    Derived()
-    {
-        std::cout << "Derived construct " << this << "\n";
-        protected_value = 100;
-        //private_value = 200; 
-    }
+    //Derived() //: Base(0)
+    //{
+    //    std::cout << "Derived construct " << this << "\n";
+    //    protected_value = 100;
+    //    //private_value = 200; 
+    //}
 
     //using Base::Base;
     Derived(int value) : Base(value)
