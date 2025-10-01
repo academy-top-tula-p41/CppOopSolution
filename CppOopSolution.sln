@@ -25,6 +25,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CppOopTemplatesProject", "C
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CppOopSmartPointerProject", "CppOopSmartPointerProject\CppOopSmartPointerProject.vcxproj", "{B4EAF5C5-54D0-41D8-9589-A305D02E4D10}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CppOopCopyMoveCompareProject", "CppOopCopyMoveCompareProject\CppOopCopyMoveCompareProject.vcxproj", "{EB62E03E-849E-4F9B-B5A0-DB25AE742EAB}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CppOopRelationshipsProject", "CppOopRelationshipsProject\CppOopRelationshipsProject.vcxproj", "{A5EC4284-BE94-49C0-B1EB-B0C61418289E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -121,6 +125,22 @@ Global
 		{B4EAF5C5-54D0-41D8-9589-A305D02E4D10}.Release|x64.Build.0 = Release|x64
 		{B4EAF5C5-54D0-41D8-9589-A305D02E4D10}.Release|x86.ActiveCfg = Release|Win32
 		{B4EAF5C5-54D0-41D8-9589-A305D02E4D10}.Release|x86.Build.0 = Release|Win32
+		{EB62E03E-849E-4F9B-B5A0-DB25AE742EAB}.Debug|x64.ActiveCfg = Debug|x64
+		{EB62E03E-849E-4F9B-B5A0-DB25AE742EAB}.Debug|x64.Build.0 = Debug|x64
+		{EB62E03E-849E-4F9B-B5A0-DB25AE742EAB}.Debug|x86.ActiveCfg = Debug|Win32
+		{EB62E03E-849E-4F9B-B5A0-DB25AE742EAB}.Debug|x86.Build.0 = Debug|Win32
+		{EB62E03E-849E-4F9B-B5A0-DB25AE742EAB}.Release|x64.ActiveCfg = Release|x64
+		{EB62E03E-849E-4F9B-B5A0-DB25AE742EAB}.Release|x64.Build.0 = Release|x64
+		{EB62E03E-849E-4F9B-B5A0-DB25AE742EAB}.Release|x86.ActiveCfg = Release|Win32
+		{EB62E03E-849E-4F9B-B5A0-DB25AE742EAB}.Release|x86.Build.0 = Release|Win32
+		{A5EC4284-BE94-49C0-B1EB-B0C61418289E}.Debug|x64.ActiveCfg = Debug|x64
+		{A5EC4284-BE94-49C0-B1EB-B0C61418289E}.Debug|x64.Build.0 = Debug|x64
+		{A5EC4284-BE94-49C0-B1EB-B0C61418289E}.Debug|x86.ActiveCfg = Debug|Win32
+		{A5EC4284-BE94-49C0-B1EB-B0C61418289E}.Debug|x86.Build.0 = Debug|Win32
+		{A5EC4284-BE94-49C0-B1EB-B0C61418289E}.Release|x64.ActiveCfg = Release|x64
+		{A5EC4284-BE94-49C0-B1EB-B0C61418289E}.Release|x64.Build.0 = Release|x64
+		{A5EC4284-BE94-49C0-B1EB-B0C61418289E}.Release|x86.ActiveCfg = Release|Win32
+		{A5EC4284-BE94-49C0-B1EB-B0C61418289E}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

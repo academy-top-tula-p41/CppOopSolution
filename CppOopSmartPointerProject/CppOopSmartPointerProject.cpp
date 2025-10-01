@@ -1,5 +1,8 @@
 ﻿// CppOop SmartPointer Project.cpp 
 #include <iostream>
+#include <utility>
+#include <vector>
+#include <memory>
 
 template <typename T>
 class SmartPointer
@@ -103,17 +106,46 @@ void SecondFunction(SmartPointer<Resource> res)
 
 }
 
-
-
 SmartPointer<Resource> CreateResource()
 {
     SmartPointer<Resource> res(new Resource(100));
     return res;
 }
 
+template <typename T>
+void Swap(T& left, T& right)
+{
+    /*T temp{ left };
+    left = right;
+    right = temp;*/
+
+    T temp{ std::move(left) };
+    left = std::move(right);
+    right = std::move(temp);
+}
 
 int main()
 {
-    SmartPointer<Resource> mainRes;
-    mainRes = CreateResource();
+    //int a{ 20 };
+    //int b{ 30 };
+    //std::cout << a << " " << b << "\n";
+    //Swap(a, b);
+    //std::cout << a << " " << b << "\n";
+
+    /*std::vector<std::string> v;
+    std::string s{ "123" };
+    v.push_back(s);
+    std::cout << s << " " << v[0] << "\n";
+    v.push_back(std::move(s));
+    std::cout << s << " " << v[0] << " " << v[1] << "\n";*/
+
+    //std::unique_ptr<Resource> res{ new Resource() };
+
+    auto res{ std::make_unique<Resource>(100) };
+
+    std::unique_ptr<Resource> res2(std::move(res));
+    std::unique_ptr<Resource> res3;
+    res3 = std::move(res2);
+
+
 }

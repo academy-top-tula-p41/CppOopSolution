@@ -26,7 +26,12 @@ public:
 	Vector(Vector<T>&& other) noexcept
 		: size{ other.size },
 		capacity{ other.capacity },
-		items{ other.items } {}
+		items{ other.items } 
+	{
+		other.capacity = 0;
+		other.size = 0;
+		other.items = nullptr;
+	}
 
 	Vector<T>& operator=(const Vector<T>& other)
 	{
