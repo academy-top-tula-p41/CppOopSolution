@@ -1,5 +1,12 @@
 #pragma once
 template <typename T>
+class ICompare
+{
+public:
+	virtual bool Less(const T& left, const T& right) = 0;
+};
+
+template <typename T>
 class Vector
 {
 	T* items;
@@ -74,6 +81,8 @@ public:
 	void PushBack(T value);
 	void PushFront(T value);
 	void Insert(int index, T value);
+
+	void Sort(ICompare<T>* compare);
 
 	T PopBack();
 	T PopFront();
@@ -175,6 +184,15 @@ void Vector<T>::Insert(int index, T value)
 
 	delete[] items;
 	items = newItems;
+}
+
+template<typename T>
+void Vector<T>::Sort(ICompare<T>* compare)
+{
+	for (int i{}; i < size; i++)
+		for (int j{ size - 1 }; j > i; j--)
+			if (compare->Less(items[j], items[j - 1]))
+				std::swap(items[j], items[j - 1]);
 }
 
 template <typename T>

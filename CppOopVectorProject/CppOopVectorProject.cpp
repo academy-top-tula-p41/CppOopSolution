@@ -18,6 +18,9 @@ public:
         strcpy_s(this->name, strlen(name) + 1, name);
     }
 
+    const char* Name() const { return name; }
+    int Age() const { return age; }
+
 
     friend std::ostream& operator<<(std::ostream& out, const Person& p)
     {
@@ -26,9 +29,37 @@ public:
     }
 };
 
+class IntCompare : public ICompare<int>
+{
+public:
+    bool Less(const int& a, const int& b) override
+    {
+        return a < b;
+    }
+};
+
+class PersonNameCompare : public ICompare<Person>
+{
+public:
+    bool Less(const Person& left, const Person& right) override
+    {
+        return strcmp(left.Name(), right.Name()) < 0;
+    }
+};
+
+class PersonAgeCompare : public ICompare<Person>
+{
+public:
+    bool Less(const Person& left, const Person& right) override
+    {
+        return left.Age() < right.Age();
+    }
+};
 
 int main()
 {
+    srand(time(nullptr));
+
     /*Vector<int> v1;
     
 
@@ -69,10 +100,21 @@ int main()
     v1.Print();
     std::cout << v1.Size() << " " << v1.Capacity() << "\n";*/
 
+    Vector<int> numbers(10);
+    for (int i{}; i < numbers.Size(); i++)
+        numbers[i] = rand() % 100;
+    numbers.Print();
+    numbers.Sort(new IntCompare());
+    numbers.Print();
+
     Vector<Person> persons;
     persons.PushBack(Person("Bobby", 29));
     persons.PushBack(Person("Sammy", 31));
     persons.PushBack(Person("Jimmy", 22));
-
     persons.Print();
+    persons.Sort(new PersonNameCompare());
+    persons.Print();
+    persons.Sort(new PersonAgeCompare());
+    persons.Print();
+
 }
